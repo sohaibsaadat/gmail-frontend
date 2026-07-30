@@ -2,16 +2,24 @@ import React from 'react'
 import { Checkbox } from '@mui/material'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-import { emails } from '../assets/emails'
+import { useEmail } from '../context/EmailContext';
 const Inbox = ({open}) => {
-console.log(emails.filter((email) => email.folder === "Inbox"));  
+
+  const {emails,selectedEmails,handleSelectEmail} = useEmail()
+  console.log(selectedEmails);
+  
+  const inboxEmail= emails.filter((email)=> email.folder === 'Inbox')
     return (
      <div>
-       {emails.filter((email)=> email.folder === 'Inbox').map((email,index)=>(
+       {inboxEmail.map((email,index)=>(
              <div key={index} className='flex border hover:shadow-2xl justify-between w-full  border-t-gray-200 border-l-0 border-r-0 border-b-gray-200 justify- px-5  items-center'>
           
             <div className='flex items-center w-[20%]  gap-2 '>
-              <Checkbox/>
+              <Checkbox
+                checked={selectedEmails.includes(email.id)}
+  onChange={() => handleSelectEmail(email.id)}
+
+              />
              {
   email.starred ? (
     <StarIcon  sx={{ fontSize: 42, color: "gold" }} className="hover:bg-gray-200 p-2 rounded-full" />

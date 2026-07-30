@@ -2,11 +2,15 @@ import React from 'react'
 import { Checkbox } from '@mui/material'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-import { emails } from '../assets/emails'
+import { useEmail } from '../context/EmailContext';
 const Sent = ({open}) => {
+
+  const {emails} = useEmail()
+  
+  const sentEmails= emails.filter((email)=> email.folder === 'Sent')
     return (
      <div>
-       {emails.filter((email)=> email.folder === 'Sent').map((email,index)=>(
+       {sentEmails.map((email,index)=>(
              <div key={index} className='flex border hover:shadow-2xl justify-between w-full  border-t-gray-200 border-l-0 border-r-0 border-b-gray-200 justify- px-5  items-center'>
           
             <div className='flex items-center w-[20%]  gap-2 '>

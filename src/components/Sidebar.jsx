@@ -39,12 +39,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 import {
   Checkbox,
   IconButton,
   Menu,
   
 } from "@mui/material";
+import { useEmail } from '../context/EmailContext';
 const label = { slotProps: { input: { 'aria-label': 'Checkbox demo' } } };
 
 
@@ -149,8 +151,8 @@ export default function Layout({open,children,setOpen}) {
 ];
 
 
-const [checked, setChecked] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+const { handleSelectAll,checked } = useEmail();
 
   const start = Boolean(anchorEl);
   return (
@@ -243,7 +245,7 @@ const [checked, setChecked] = React.useState(false);
          <div className="flex items-center">
       <Checkbox
         checked={checked}
-        onChange={() => setChecked((prev) => !prev)}
+        onChange={handleSelectAll}
       />
 
       <IconButton

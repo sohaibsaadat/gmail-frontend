@@ -1,15 +1,16 @@
+import React from 'react'
 import { Checkbox } from '@mui/material'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-import React from 'react'
-import {emails} from '../assets/emails.js'
-
+import { useEmail } from '../context/EmailContext';
 const AllMail = ({open}) => {
-console.log(open);
 
-  return (
-    <div>
-       {emails.map((email,index)=>(
+  const {emails} = useEmail()
+  
+  const AllMail= emails
+    return (
+     <div>
+       {AllMail.map((email,index)=>(
              <div key={index} className='flex border hover:shadow-2xl justify-between w-full  border-t-gray-200 border-l-0 border-r-0 border-b-gray-200 justify- px-5  items-center'>
           
             <div className='flex items-center w-[20%]  gap-2 '>
