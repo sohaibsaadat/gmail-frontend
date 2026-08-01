@@ -15,13 +15,15 @@ const handleSelectEmail = (id) => {
       ? prev.filter((emailId) => emailId !== id)
       : [...prev, id]
   );
+  setChecked(false)
 };
 
 
 const handleSelectAll = () => {
-  let filteredEmails = [];
-    setChecked((prev) => !prev);
+    let filteredEmails = [];
+   
 
+console.log(checked);
 
   switch (location.pathname) {
     case "/":
@@ -44,7 +46,7 @@ const handleSelectAll = () => {
 
     case "/drafts":
       filteredEmails = emails.filter(
-        (email) => email.folder === "Drafts"
+        (email) => email.folder === "Draft"
       );
       break;
 
@@ -61,6 +63,20 @@ const handleSelectAll = () => {
   const ids = filteredEmails.map((email) => email.id);
 
   setSelectedEmails(ids);
+  setChecked(true)
+
+
+const allSelected = ids.every((id) =>
+  selectedEmails.includes(id)
+);
+
+if (allSelected) {
+  setSelectedEmails([]);
+  setChecked(false);
+} else {
+  setSelectedEmails(ids);
+  setChecked(true);
+}
 };
     return(
 

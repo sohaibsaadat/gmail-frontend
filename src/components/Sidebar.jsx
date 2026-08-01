@@ -110,6 +110,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
+    position:'relative',
+    zIndex:'10',
     boxSizing: 'border-box',
     variants: [
       {
@@ -152,7 +154,7 @@ export default function Layout({open,children,setOpen}) {
 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-const { handleSelectAll,checked } = useEmail();
+const { handleSelectAll,checked,handleBtnSelectAll } = useEmail();
 
   const start = Boolean(anchorEl);
   return (
@@ -260,7 +262,7 @@ const { handleSelectAll,checked } = useEmail();
         open={start}
         onClose={() => setAnchorEl(null)}
       >
-        <MenuItem onClick={() => setAnchorEl(null)}>
+        <MenuItem onClick={() =>{handleSelectAll(); setAnchorEl(null) }}>
           Select all
         </MenuItem>
 

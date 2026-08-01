@@ -8,11 +8,13 @@ import Sent from "./pages/Sent";
 import Starred from "./pages/Starred";
 import Trash from "./pages/Trash";
 import { useState } from "react";
+import EditIcon from '@mui/icons-material/Edit';
 
 const App = () => {
   const [open,setOpen]=useState(false)
   return (
-    <Layout setOpen={setOpen} open={open}>
+    <div className="relative">
+<Layout  setOpen={setOpen} open={open}>
       <Routes>
         <Route path="/" element={<Inbox  open={open}/>} />
           <Route path="/all-mail" element={<AllMail open={open} />} />
@@ -21,7 +23,15 @@ const App = () => {
         <Route path="/starred" element={<Starred open={open} />} />
         <Route path="/trash" element={<Trash open={open} />} />
       </Routes>
+     
     </Layout>
+<button
+  className="fixed right-5 bottom-10 flex w-fit items-center cursor-pointer hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105  hover:border-gray-500 gap-2 rounded-full bg-blue-300 px-8 py-3 z-20"
+>
+  <EditIcon />
+  <p>Compose</p>
+</button>    </div>
+    
   );
 };
 
