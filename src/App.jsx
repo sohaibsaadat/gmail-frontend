@@ -9,6 +9,7 @@ import Starred from "./pages/Starred";
 import Trash from "./pages/Trash";
 import { useState } from "react";
 import EditIcon from '@mui/icons-material/Edit';
+import Compose from "./components/Compose";
 
 const App = () => {
   const [open,setOpen]=useState(false)
@@ -25,12 +26,19 @@ const App = () => {
       </Routes>
      
     </Layout>
-<button
-  className="fixed right-5 bottom-10 flex w-fit items-center cursor-pointer hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105  hover:border-gray-500 gap-2 rounded-full bg-blue-300 px-8 py-3 z-20"
+
+
+<button 
+  className="fixed right-5 bottom-10 flex w-fit items-center cursor-pointer hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105  hover:border-gray-500  rounded-full bg-blue-300 px-8 py-2 z-20"
 >
-  <EditIcon />
-  <p>Compose</p>
-</button>    </div>
+ 
+    <Compose btnText="Compose">
+
+    </Compose>
+</button>  
+
+
+  </div>
     
   );
 };
