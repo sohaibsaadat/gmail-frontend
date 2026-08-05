@@ -179,7 +179,7 @@ const { handleSelectAll,checked,handleBtnSelectAll } = useEmail();
           >
             <MenuIcon />
           </IconButton>
-         <img className='w-25 ml-1' src="/public/gmail.jpg" alt="" />
+         <img className='w-15 scale-200 ml-4 cursor-pointer' src="/public/logo.png" alt="" />
             </div>
          
          <div className='min-h-12 ml-20 min-w-150 flex justify-between items-center px-2 border-gray-400  shadow-xs         rounded-full bg-gray-200'>
@@ -189,7 +189,7 @@ const { handleSelectAll,checked,handleBtnSelectAll } = useEmail();
          <div className='flex items-center gap-8 '>
 <HelpOutlineOutlinedIcon sx={{fontSize:40}} className='text-gray-600 hover:bg-gray-200 cursor-pointer rounded-full  p-2'/>
 <SettingsOutlinedIcon sx={{fontSize:40}} className='text-gray-600 hover:bg-gray-200 cursor-pointer rounded-full  p-2'/>
-<img className='w-8' src="/gemini-color.svg" alt="" />
+<img path="/account"  className='w-8' src="/gemini-color.svg" alt="" />
          </div>
         </Toolbar>
       </AppBar>
